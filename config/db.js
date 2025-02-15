@@ -23,15 +23,17 @@
 const mysql = require("mysql2/promise");
 const config = require("./index");
 const HttpException = require("../middleware/HttpException");
-
+require('dotenv').config()
 const environment = process.env;
 
+console.log("env", process.env.DB_HOST);
+
 const pool = mysql.createPool({
-  host: environment.DB_HOST ? "sql12.freemysqlhosting.net" : config.HOST,
-  user: environment.DB_USER ? "sql12667445" : config.USER,
+  host: environment.DB_HOST,
+  user: environment.DB_USER,
   port: config.DB_PORT,
-  password: environment.DB_PASSWORD ? "MAAQQXwLVN" : config.PASSWORD,
-  database: environment.DATABASE ? "sql12667445" : config.DATABASE,
+  password: environment.DB_PASSWORD,
+  database: environment.DATABASE,
   waitForConnections: true,
   // connectionLimit: 10, // Adjust according to your needs
   queueLimit: 0,

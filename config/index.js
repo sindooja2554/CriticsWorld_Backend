@@ -6,5 +6,5 @@ module.exports = {
   PASSWORD: "alt_4444",
   DATABASE: "criticsworld",
   PORT: 8081,
-  DB_PORT: 8080
+  DB_PORT: 3306
 };
